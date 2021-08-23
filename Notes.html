@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="Notes.css">
+        <meta name="viewport" content="width=device-width" initial-scale="1.0">
+        <title>Notes</title>
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="noteContainer">
+                <details id="buttonContainer">
+                    <summary id="toggleContainer">Note Drop-Down</summary>
+                    <span id="newNoteToggle">
+                        <form id="newNoteInput">
+                            <span>
+                                <input type="text" id="newNoteTitle" class="inputControls" placeholder="Title" maxlength="50">
+                                <label class="newLabel detailScript">0/50 characters</label>
+                                <label class="newLabel errorMessage">Character limit reached!</label>
+                            </span>
+                            <span>
+                                <input type="textarea" id="newNoteDetails" class="inputControls" placeholder="Details" maxlength="100">
+                                <label class="newLabel detailScript">0/100 characters</label>
+                                <label class="newLabel errorMessage">Character limit reached!</label>
+                            </span>
+                            <span><label id="fillMessage" style="display:none">Both boxes must be filled</label></span>
+                            <button id="addButton">Add New Note</button>
+                        </form>
+                    </span>
+                </details>
+            </div>
+            <div id="noteList">      
+            </div>
+
+            </div>
+        </div>
+        <script src="Notes.js"></script>
+    </body>
+</html>

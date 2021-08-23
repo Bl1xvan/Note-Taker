@@ -1,0 +1,196 @@
+* {
+    display: block;
+    margin: auto;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}
+
+.deleteNote{
+    color: white;
+    background-color: rgb(143, 16, 16);
+}
+
+title{
+    display: none;
+}
+
+#container{
+    width: 100%;
+}
+
+.theDate, .theID{
+    color: white;
+    padding-left: 5px;
+    font-size: 10px
+}
+
+.theDate{
+    float: left;
+}
+
+.theID{
+    float: right;
+}
+
+body{
+    background-color: #ffd7fd;
+}
+
+#searchForm{
+    background-color:#d1389e;
+    padding: 15px;
+}
+#toggleContainer{
+    background-color: #45196e;
+    text-align: center;
+}
+
+.noteTitle.inputControls{
+    width: 100%;
+}
+
+.detailScript {
+    color: white;
+}
+
+.errorMessage{
+    color: white;
+    background-color:rgb(143, 16, 16);
+    visibility: hidden;
+}
+
+#addButton{
+    background-color:#18126e;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+#searchButton {
+    background-color: #042b27;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#toggleContainer{
+    width: 70%;
+    padding: 25px;
+}
+
+#addButton, #searchButton, #toggleContainer{
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.newNote{
+    margin-top: 10px;
+}
+
+#newNoteToggle{
+    width: 70%;
+}
+
+#newNoteInput input, #searchDate, #searchTitle{
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 15px 10px 15px;
+    font-weight: bold;
+}
+
+#newNoteInput input[type=text]{
+    color: #064139;
+}
+
+.noteForm input[type=text]{
+    color: white;
+}
+
+.noteForm span{
+    display: inline-block;
+    width: 100%;
+}
+
+
+.noteForm span:nth-child(1), .noteTitle{
+    background-color: #18126e;
+}
+
+.noteForm span:nth-child(2), .noteDetails{
+    background-color:#d1389e;
+}
+
+.noteDetails{
+    float: left;
+    max-width: 320px;
+    height: 100px;
+}
+
+.noteForm{
+    width: 80%;
+}
+
+.noteTitle{
+    font-weight: bolder;
+}
+
+.noteTitle, .noteDetails{
+    border: none;
+    color: white;
+    width: 70%;
+}
+
+.noteForm input, .noteForm button{
+    float: left;
+}
+
+.noteForm button{
+    padding: 7px;
+    width: 70px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    color: white;
+}
+
+.titleSpan{
+    padding:10px;
+}
+
+.editLabel{
+    margin: 8px;
+    padding: 2px;
+    font-size: 12px;
+    float: left;
+}
+
+
+
+@media screen and (min-width: 800px){
+    #noteContainer, #noteList{
+        margin-top: 50px;
+        float: left;
+    }
+
+    #noteContainer{
+        width: 30%;
+        border-right: dotted rgb(145, 13, 101) 2px;
+        border-bottom: dotted rgb(145, 13, 101) 2px;
+        padding-bottom: 30px;
+    }
+
+    #noteList{
+        width: 70%;
+    }
+
+    .newNote{
+        width: 50%;
+        float: left;
+    }
+
+
+
+}
