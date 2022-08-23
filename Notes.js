@@ -7,17 +7,17 @@ function wordCount(event){
         let inputValueLength = inputValue.length;
         const maxInputLength = event.target.getAttribute("maxLength");
         const charLimit = event.target.nextElementSibling;
-        const errorMessage = event.target.nextElementSibling.nextElementSibling;
-
+        const errorMessage = event.target.parentNode.nextElementSibling;
+        console.log(errorMessage);
         charLimit.innerText = inputValueLength + "/" + maxInputLength + " characters";
 
         if(!inputValue){
-            return[];
+          return[];
         }
         if(inputValueLength == maxInputLength){
             errorMessage.style.visibility = "visible";
         }else{
-            errorMessage.style.visibility = "hidden";
+           errorMessage.style.visibility = "hidden";
         }
     }}
 
@@ -27,6 +27,8 @@ let dateNote = new Date();
 
 let newNoteTitle = document.getElementById("newNoteTitle");
 let newNoteDetails = document.getElementById("newNoteDetails");
+let labelTitle = document.getElementById("labelTitle");
+let labelDetails = document.getElementById("labelDetails");
 
 class NewNote {
     constructor(id, title, details, date) {
@@ -36,23 +38,29 @@ class NewNote {
         this.date = date;
         this.titleFormat = function() {
             return `<span class="titleSpan">
-                        <input type="text" class="noteTitle inputControls" value="${this.title}" maxlength="50">
-                        <label class="editLabel detailScript">0/50 characters</label>
-                        <label class="editLabel errorMessage">Character limit reached!</label>
-                        <span class="noteButtons">                  
-                            <button class="deleteNote" onclick="removeNote(${this.id})">Delete</button>
-                        </span>
+                      <span class="title">
                         <span class="noteInfo">
-                            <label class="theDate">${this.date}</label>
                             <label class="theID">${this.id}</label>
+                            <label class="theDate">${this.date}</label>
                         </span>
-                    </span>`;
+                        <span class="noteButtons"> 
+    <button class="deleteNote" onclick="removeNote(${this.id})">X</button>
+                        </span>
+                       </span>
+    <span class="whiteinput">
+        <input type="text" class="noteTitle inputControls" value="${this.title}" maxlength="50">
+        <label class="editLabel detailScript">0/50 characters</label>
+    </span>
+    <label class="editLabel errorMessage">Character limit reached!</label>
+   </span>`;
         }
         this.detailsFormat = function() {
             return `<span class="detailsSpan">
                         <details><summary>Click for Details</summary>
+                        <span class="whiteinput">
                             <textarea class="noteDetails inputControls" maxlength="100">${this.details}</textarea>
                             <label class="editLabel detailScript">0/100 characters</label>
+                            </span>
                             <label class="editLabel errorMessage">Character limit reached!</label>
                         </details>  
                     </span>`;
@@ -89,9 +97,9 @@ function addANote(){
     dummyNotes.push(pushNote);
     addNewNote(pushNote);
     newNoteTitle.value = "";
-    newNoteDetails.value = "";
-    console.log(dummyNotes); 
-
+    newNoteDetails.value = ""; 
+    labelTitle.innerText = "0/50 characters";
+    labelDetails.innerText = "0/100 characters";
     newNoteTitle.style.backgroundColor="white";
     newNoteDetails.style.backgroundColor="white";
     document.getElementById("fillMessage").style.display = "none";
@@ -113,7 +121,6 @@ function removeNote(id){
     init();
     console.log(dummyNotes);
 }
-
 
 /*Gets note on the page*/
 function init() {

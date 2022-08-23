@@ -1,196 +1,142 @@
 * {
-    display: block;
-    margin: auto;
-    box-sizing: border-box;
-    font-family: Verdana, sans-serif;
-}
-
-.deleteNote{
-    color: white;
-    background-color: rgb(143, 16, 16);
-}
-
-title{
-    display: none;
-}
-
-#container{
-    width: 100%;
-}
-
-.theDate, .theID{
-    color: white;
-    padding-left: 5px;
-    font-size: 10px
-}
-
-.theDate{
-    float: left;
-}
-
-.theID{
-    float: right;
+    box-sizing: border-box; 
 }
 
 body{
-    background-color: #ffd7fd;
+  margin: 0;
+  font-family: Verdana, sans-serif;
+  background-image: linear-gradient(to bottom, #5a63aa, #7bceea);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-#searchForm{
-    background-color:#d1389e;
-    padding: 15px;
+#container{
+  width: 90vw;
+  height: 90vh;
+  background-image: linear-gradient(to top, rgba(255, 255, 255, .5), rgba(255, 255, 255, 1));
+  max-width: 800px;
+  min-width: 400px;
+  padding: 2em;
+  margin-top: 1em;
+  border-radius: 10px;
+  overflow-y: scroll;
 }
+
+#container::-webkit-scrollbar{
+  background-color: rgba(175, 250, 190, .7);
+  width: 15px;
+  border-radius: 15px;
+}
+
+#container::-webkit-scrollbar-thumb{
+  background-color: #522370;
+  border-radius: 10px;
+  width: 1px;
+}
+
 #toggleContainer{
-    background-color: #45196e;
-    text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
-.noteTitle.inputControls{
-    width: 100%;
+#noteContainer{
+  background-color: #272c54;
+  border-radius: 10px;
+  color: white;
+  padding: 1.5em;
+}
+#newNoteInput, .titleSpan, .detailsSpan details{
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
 }
 
-.detailScript {
-    color: white;
+.detailsSpan details{
+  border-top: 1px solid #5a63aa;
+}
+.inputControls{
+  border: none;
+}
+
+#newNoteInput > .whiteinput{
+  background-color: white;
+}
+
+.titleSpan > .whiteinput > input{
+  background-color: transparent;
+}
+
+.whiteinput > input {
+  font-size: 1.25em;
+}
+
+.whiteinput{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 7px;
+}
+
+#addButton {
+    padding: 1em 0;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: rgb(175, 250, 190);
+    border: none;
+    color: #602e7f;
+}
+
+#addButton:hover{
+  background-color: #fafcff;
+}
+
+#noteList{
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1em;
+}
+
+.newLabel{
+  padding-top: .5em;
+  font-size: .8em;
+  font-weight: bold;
+  color: #5a63aa;
 }
 
 .errorMessage{
-    color: white;
-    background-color:rgb(143, 16, 16);
-    visibility: hidden;
+  margin: .3em 0;
+  visibility: hidden;
 }
 
-#addButton{
-    background-color:#18126e;
-    margin-top: 10px;
-    width: 100%;
-    padding: 10px;
-}
-
-#searchButton {
-    background-color: #042b27;
-    margin-top: 20px;
-    padding: 10px;
-}
-
-#toggleContainer{
-    width: 70%;
-    padding: 25px;
-}
-
-#addButton, #searchButton, #toggleContainer{
+.deleteNote {
+    font-size: 1em;
     border: none;
-    border-radius: 10px;
-    color: #ffffff;
-    font-weight: 800;
+    background-color: transparent;
+}
+
+.deleteNote:hover{
+  background-color: rgb(31 65 111 / 20%);
+  color: white;
 }
 
 .newNote{
-    margin-top: 10px;
+  background-color: #8ab4c9;
+  border-radius: 10px;
 }
 
-#newNoteToggle{
-    width: 70%;
+.editLabel.detailScript, .noteInfo{
+  text-align: right;
+  font-size: .8em;
+  color: #343f8d;
 }
 
-#newNoteInput input, #searchDate, #searchTitle{
-    margin-top: 10px;
-    border: none;
-    border-radius: 10px;
-    width: 100%;
-    padding: 15px 10px 15px;
-    font-weight: bold;
+.noteDetails.inputControls{
+  background-color: transparent;
 }
 
-#newNoteInput input[type=text]{
-    color: #064139;
-}
-
-.noteForm input[type=text]{
-    color: white;
-}
-
-.noteForm span{
-    display: inline-block;
-    width: 100%;
-}
-
-
-.noteForm span:nth-child(1), .noteTitle{
-    background-color: #18126e;
-}
-
-.noteForm span:nth-child(2), .noteDetails{
-    background-color:#d1389e;
-}
-
-.noteDetails{
-    float: left;
-    max-width: 320px;
-    height: 100px;
-}
-
-.noteForm{
-    width: 80%;
-}
-
-.noteTitle{
-    font-weight: bolder;
-}
-
-.noteTitle, .noteDetails{
-    border: none;
-    color: white;
-    width: 70%;
-}
-
-.noteForm input, .noteForm button{
-    float: left;
-}
-
-.noteForm button{
-    padding: 7px;
-    width: 70px;
-    border-radius: 5px;
-    border: none;
-    font-weight: bold;
-    color: white;
-}
-
-.titleSpan{
-    padding:10px;
-}
-
-.editLabel{
-    margin: 8px;
-    padding: 2px;
-    font-size: 12px;
-    float: left;
-}
-
-
-
-@media screen and (min-width: 800px){
-    #noteContainer, #noteList{
-        margin-top: 50px;
-        float: left;
-    }
-
-    #noteContainer{
-        width: 30%;
-        border-right: dotted rgb(145, 13, 101) 2px;
-        border-bottom: dotted rgb(145, 13, 101) 2px;
-        padding-bottom: 30px;
-    }
-
-    #noteList{
-        width: 70%;
-    }
-
-    .newNote{
-        width: 50%;
-        float: left;
-    }
-
-
-
+.title{
+  display: flex;
+  justify-content: space-between;
 }
